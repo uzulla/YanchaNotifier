@@ -26,9 +26,9 @@ $ur->run(sub {
             return;
         }
 
-        $text =~ s/"/\"/g;
+        $text =~ s/"//g;// 雑
         $text = substr($text,0,40); 
-        `echo 'display notification "${text}" with title "Yancha" ' |osascript`;
+        `echo 'display notification "${text}" with title "Yancha" ' |osascript`;//ありえないsystem()に書き換えるべき
     });
 });
 
