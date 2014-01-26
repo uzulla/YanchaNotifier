@@ -26,9 +26,10 @@ $ur->run(sub {
             return;
         }
 
-        $text =~ s/"//g;// 雑
+        $text =~ s/"//g; # 雑
+        $text =~ s/'//g; # ざつ
         $text = substr($text,0,40); 
-        `echo 'display notification "${text}" with title "Yancha" ' |osascript`;//ありえないsystem()に書き換えるべき
+        `echo 'display notification "${text}" with title "Yancha" ' |osascript`; #ありえないsystem()に書き換えるべき
     });
 });
 
