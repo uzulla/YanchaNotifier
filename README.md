@@ -2,6 +2,8 @@
 
 Yanchaの投稿をMacの通知センターにたたきこみます
 
+Mavericks以降の必要があります
+
 # DESCRIPTION
 
 その内書きます

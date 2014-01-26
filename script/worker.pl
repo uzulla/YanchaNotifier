@@ -6,7 +6,6 @@ use FindBin qw($Bin);
 use AnyEvent;
 use Unruly;
 use utf8;
-use Net::Twitter::Lite::WithAPIv1_1;
 use Data::Dumper;
 
 my $config = do "$Bin/../config.pl";
