@@ -2,5 +2,7 @@ use strict;
 +{
     'twitter_id'      => 'your_twitter_id', 
     'twitter_pass'    => 'your_twitter_pass'
+    'sound'           => 1,
+    'display_log'     => 0,
 };
 

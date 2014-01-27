@@ -31,7 +31,7 @@ $ur->run(sub {
         }
 
         $text = $nick.">".$text;
-        if($ENV{PRINT_LOG}){
+        if($config->{display_log}){
             my $t = localtime;
             print $t->hms.":"."${text}\n";
         }
@@ -40,7 +40,12 @@ $ur->run(sub {
         $text =~ s/\\/\\\\/g;
         $text =~ s/"/\\"/g;
 
-        my $as = 'display notification "'.$text.'" with title "Yancha"';
+        my $sound = '';
+        if($config->{sound}){
+            $sound = ' sound name "Submarine"';
+        }
+
+        my $as = 'display notification "'.$text.'" with title "Yancha"'.$sound;
         system('osascript', "-e", $as);
     });
 });
