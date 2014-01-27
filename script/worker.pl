@@ -6,6 +6,10 @@ use FindBin qw($Bin);
 use AnyEvent;
 use Unruly;
 use utf8;
+binmode STDOUT, ":utf8";
+use Encode;
+use Time::Piece;
+
 use Data::Dumper;
 
 my $config = do "$Bin/../config.pl";
@@ -26,10 +30,16 @@ $ur->run(sub {
             return;
         }
 
-        $text =~ s/"//g; # 雑
-        $text =~ s/'//g; # ざつ
+        $text = $nick.">".$text;
+        my $t = localtime;
+        print $t->hms.":"."${text}\n";
+
         $text = substr($text,0,40); 
-        `echo 'display notification "${text}" with title "Yancha" ' |osascript`; #ありえないsystem()に書き換えるべき
+        $text =~ s/\\/\\\\/g;
+        $text =~ s/"/\\"/g;
+
+        my $as = 'display notification "'.$text.'" with title "Yancha"';
+        system('osascript', "-e", $as);
     });
 });
 
