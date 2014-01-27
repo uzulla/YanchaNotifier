@@ -31,10 +31,12 @@ $ur->run(sub {
         }
 
         $text = $nick.">".$text;
-        my $t = localtime;
-        print $t->hms.":"."${text}\n";
+        if($ENV{PRINT_LOG}){
+            my $t = localtime;
+            print $t->hms.":"."${text}\n";
+        }
 
-        $text = substr($text,0,40); 
+        $text = substr($text,0,80); 
         $text =~ s/\\/\\\\/g;
         $text =~ s/"/\\"/g;
 
