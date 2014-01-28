@@ -1,7 +1,8 @@
 use strict;
 +{
     'twitter_id'      => 'your_twitter_id', 
-    'twitter_pass'    => 'your_twitter_pass'
+    'twitter_pass'    => 'your_twitter_pass',
+    'yancha_url'      => 'http://yancha.hachiojipm.org',
     'sound'           => 1,
     'display_log'     => 0,
 };

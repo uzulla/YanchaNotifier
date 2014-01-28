@@ -8,6 +8,16 @@ Mavericks以降の必要があります
 
 その内書きます
 
+# REQUIRE
+
+[terminal-notifier](https://github.com/alloy/terminal-notifier)
+
+```
+brew install terminal-notifier
+```
+
+or use other install method. (see detail in terminal-notifier site)
+
 # INSTALL
 
 ```

@@ -14,7 +14,7 @@ use Data::Dumper;
 
 my $config = do "$Bin/../config.pl";
 
-my $ur = Unruly->new(url => 'http://yancha.hachiojipm.org', tags => {PUBLIC => 1});
+my $ur = Unruly->new(url => $config->{yancha_url}, tags => {PUBLIC => 1});
 $ur->twitter_login($config->{twitter_id}, $config->{twitter_pass});
 
 my $cv = AnyEvent->condvar;
@@ -37,16 +37,14 @@ $ur->run(sub {
         }
 
         $text = substr($text,0,80); 
-        $text =~ s/\\/\\\\/g;
-        $text =~ s/"/\\"/g;
 
-        my $sound = '';
+        my @sound = ();
         if($config->{sound}){
-            $sound = ' sound name "Submarine"';
+            @sound = ('-sound', 'Submarine');
         }
 
-        my $as = 'display notification "'.$text.'" with title "Yancha"'.$sound;
-        system('osascript', "-e", $as);
+        my @exe = ('terminal-notifier', '-title', 'yancha', '-message', $text, '-open', $config->{yancha_url}, @sound);
+        system(@exe);
     });
 });
 
