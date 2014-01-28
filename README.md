@@ -2,7 +2,7 @@
 
 Yanchaの投稿をMacの通知センターにたたきこみます
 
-Mavericks以降の必要があります
+OSX 10.8 and higher.(terminal-notifierの都合)
 
 # DESCRIPTION
 
