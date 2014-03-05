@@ -45,7 +45,23 @@ $ur->run(sub {
 
         my @exe = ('terminal-notifier', '-title', 'yancha', '-message', $text, '-open', $config->{yancha_url}, @sound);
         system(@exe);
+        
+        if($config->{yomiage}){
+            my $yomiage_text = yomiage_replace($post->{nickname}, $post->{text}); 
+            my @exe = ('say', '-v', 'kyoko', '-r', $config->{yomiage_rate}, $yomiage_text);
+            system(@exe);
+        }
     });
 });
+
+sub yomiage_replace{
+    my $nick = shift;
+    my $text = shift;
+    
+    $nick =~ s/ytnobody/わいとんぼーい/g;
+    $text =~ s/#[A-Z]+//g;
+
+    return "$nick さん。 $text";
+}
 
 $cv->wait;

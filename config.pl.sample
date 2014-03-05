@@ -5,5 +5,7 @@ use strict;
     'yancha_url'      => 'http://yancha.hachiojipm.org',
     'sound'           => 1,
     'display_log'     => 0,
+    'yomiage'         => 1,
+    'yomiage_rate'    => 100,
 };
 
