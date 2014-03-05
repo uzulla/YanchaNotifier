@@ -30,6 +30,13 @@ run.pl
 > mirror指定しているのは、利用しているライブラリUnrulyがcpanizeはされておらず、HachiPANにあがっているので。
 > rikenのミラーはなんでもかまいません。
 
+# Text to speech
+
+OSX(Mavericksでテスト)では読み上げ機能が使えます。
+事前にシステム環境設定＞音声入力と読み上げで、kyoko音声データを入れて下さい
+configでオフにできます。
+rateは速度です、多少遅くしてあります。
+
 # see also
 
 Unruly [https://github.com/ytnobody/Unruly](https://github.com/ytnobody/Unruly)
